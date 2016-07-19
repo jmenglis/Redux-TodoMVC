@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jmenglis/Redux-TodoMVC/issues"
   },
-  "homepage": "https://github.com/jmenglis/Redux-TodoMVC#readme"
+  "homepage": "https://github.com/jmenglis/Redux-TodoMVC#readme",
+  "devDependencies": {
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
 }
