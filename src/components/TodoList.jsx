@@ -5,7 +5,7 @@ export default class TodoList extends Component {
   render() {
     return  <section className="main">
       <ul className="todo-list">
-        {this.getItems().map(item =>
+        {this.props.todos.map(item =>
           <TodoItem key={item.get('text')} text={item.get('text')} />
         )}
       </ul>
