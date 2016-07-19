@@ -27,5 +27,5 @@ const todos = List.of(
 
 ReactDOM.render(
   <TodoApp todos={todos} />,
-  document.getElementsById('app')
+  document.getElementById('app')
 )
