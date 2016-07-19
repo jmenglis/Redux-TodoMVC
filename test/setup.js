@@ -7,7 +7,7 @@ const win = doc.defaultView
 
 
 global.document = doc
-global window = win
+global.window = win
 
 Object.keys(window).forEach((key) => {
   if (!(key in global)) {
