@@ -25,6 +25,8 @@ const todos = List.of(
   })
 )
 
+require('../node_modules/todomvc-app-css/index.css')
+
 ReactDOM.render(
   <TodoApp todos={todos} />,
   document.getElementById('app')
