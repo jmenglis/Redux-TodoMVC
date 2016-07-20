@@ -7,7 +7,7 @@ import Footer from './Footer'
 export default class TodoApp extends Component {
   getNbActiveItems() {
     if (this.props.todos) {
-      const activeitems = this.props.todos.filter(
+      const activeItems = this.props.todos.filter(
         (item) => item.get('status') === 'active'
       )
       return activeItems.size
@@ -19,7 +19,7 @@ export default class TodoApp extends Component {
       <section className="todoapp">
         <TodoHeader />
         <TodoList todos={this.props.todos} filter={this.props.filter} />
-        <TodoTools fitler={this.props.filter} nbActiveItems={this.getNbActiveItems()} />
+        <TodoTools filter={this.props.filter} nbActiveItems={this.getNbActiveItems()} />
       </section>
       <Footer />
     </div>
