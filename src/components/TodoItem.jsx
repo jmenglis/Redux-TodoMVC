@@ -23,7 +23,7 @@ export default class TodoItem extends Component {
         />
         <label htmlFor="todo"
                ref="text"
-               onDoubleClick={() =>  this.props.editItems(this.props.id)}
+               onDoubleClick={() => this.props.editItem(this.props.id)}
         >
           {this.props.text}
         </label>

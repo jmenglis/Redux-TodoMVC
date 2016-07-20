@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderIntoDocument, srcyRenderedDOMComponentsWithTag, Simulate } from 'react-addons-test-utils'
+import { renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate } from 'react-addons-test-utils'
 import TodoItem from '../../src/components/TodoItem'
 import { expect } from 'chai'
 
@@ -9,7 +9,7 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} />
     )
-    const todo = srcyRenderedDOMComponentsWithTag(component, 'li')
+    const todo = scryRenderedDOMComponentsWithTag(component, 'li')
 
     expect(todo.length).to.equal(1)
     expect(todo[0].textContent).to.contain('React')
@@ -20,7 +20,7 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} isCompleted={true} />
     )
-    const todo = srcyRenderedDOMComponentsWithTag(component, 'li')
+    const todo = scryRenderedDOMComponentsWithTag(component, 'li')
 
     expect(todo[0].classList.contains('completed')).to.equal(true)
   })
@@ -30,7 +30,7 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} isEditing={true} />
     )
-    const todo = srcyRenderedDOMComponentsWithTag(component, 'li')
+    const todo = scryRenderedDOMComponentsWithTag(component, 'li')
 
     expect(todo[0].classList.contains('editing')).to.equal(true)
   })
@@ -39,10 +39,10 @@ describe('TodoItem', () => {
     const text   = 'React'
     const text2  = 'Redux'
     const component = renderIntoDocument(
-      <TodoItem text={text} isCompleted={true} />
-      <TodoItem text={text2} isCompleted={true} />
+        <TodoItem text={text} isCompleted={true} />,
+        <TodoItem text={text2} isCompleted={true} />
     )
-    const input = srcyRenderedDOMComponentsWithTag(component, 'input')
+    const input = scryRenderedDOMComponentsWithTag(component, 'input')
 
     expect(input[0].checked).to.equal(true)
     expect(input[1].checked).to.equal(false)
@@ -56,7 +56,7 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} deleteItem={deleteItem} />
     )
-    const buttons = srcyRenderedDOMComponentsWithTag(component, 'button')
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button')
     Simulate.click(buttons[0])
 
     expect(deleted).to.equal(true)
@@ -69,7 +69,7 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} toggleComplete={toggleComplete} />
     )
-    const checkboxes = srcyRenderedDOMComponentsWithTag(component, 'input')
+    const checkboxes = scryRenderedDOMComponentsWithTag(component, 'input')
     Simulate.click(checkboxes[0])
 
     expect(isChecked).to.equal(true)
