@@ -22,6 +22,7 @@ export default class TextInput extends Component {
              autoComplete="off"
              placeholder="What needs to be done?"
              onKeyPress={this._handleKeyPress.bind(this)}
+      />
     </header>
   }
 }
