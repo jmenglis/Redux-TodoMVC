@@ -1,10 +1,10 @@
 import {Map} from 'immutable'
 
-var setState = (state, newState) => {
+const setState = (state, newState) => {
   return state.merge(newState)
 }
 
-var toggleComplete = (state, itemId) => {
+const toggleComplete = (state, itemId) => {
   const itemIndex = state.get('todos').findIndex(
     (item) => item.get('id') === itemId
   )
@@ -16,12 +16,18 @@ var toggleComplete = (state, itemId) => {
   return state.update('todos', todos => todos.set(itemIndex, updatedItem))
 }
 
+const changeFilter = (state, filter) => {
+  return state.set('filter', filter)
+}
+
 export default (state = Map(), action) => {
   switch (action.type) {
     case 'SET_STATE':
       return setState(state, action.state)
     case 'TOGGLE_COMPLETE':
       return toggleComplete(state, action.itemId)
+    case 'CHANGE_FILTER':
+      return changeFilter(state, action.filter)
   }
   return state
 }
