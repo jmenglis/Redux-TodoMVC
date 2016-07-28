@@ -11,3 +11,25 @@ export const changeFilter = (filter) => {
     filter
   }
 }
+
+export const editItem = (itemId) => {
+  return {
+    type: 'EDIT_ITEM',
+    itemId
+  }
+}
+
+export const cancelEditing = (itemId) => {
+  return {
+    type: 'CANCEL_EDITING',
+    itemId
+  }
+}
+
+export const doneEditing = (itemId, newText) => {
+  return {
+    type: 'DONE_EDITING',
+    itemId,
+    newText
+  }
+}
