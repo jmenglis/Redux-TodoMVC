@@ -33,3 +33,25 @@ export const doneEditing = (itemId, newText) => {
     newText
   }
 }
+
+
+export const clearCompleted = () => {
+  return {
+    type: 'CLEAR_COMPLETED',
+    text
+  }
+}
+
+export const addItem = (text) => {
+  return {
+    type: 'ADD_ITEM',
+    text
+  }
+}
+
+export const deleteItem = (itemId) => {
+  return {
+    type: 'DELETE_ITEM',
+    itemId
+  }
+}

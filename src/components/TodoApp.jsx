@@ -25,6 +25,7 @@ export class TodoApp extends Component {
         <TodoTools changeFilter={this.props.changeFilter}
                    filter={this.props.filter}
                    nbActiveItems={this.getNbActiveItems()}
+                   clearCompleted={this.props.clearCompleted}
         />
       </section>
       <Footer />

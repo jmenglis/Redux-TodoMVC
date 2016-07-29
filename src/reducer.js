@@ -55,6 +55,33 @@ const changeFilter = (state, filter) => {
   return state.set('filter', filter)
 }
 
+const clearCompleted = (state) => {
+  return state.update('todos',
+    (todos) => todos.filterNot(
+      (item) => item.get('status') === 'completed'
+    )
+  )
+}
+
+const addItem = (state, text) => {
+  const itemId = state.get('todos').reduce((maxId, item) => Math.max(maxId, item.get('id')), 0) + 1
+  const newItem = Map({
+    id: itemId,
+    text: text,
+    status: 'active'
+  })
+  return state.update('todos', (todos) => todos.push(newItem))
+}
+
+const deleteItem = (state, itemId) => {
+  return state.update('todos',
+    (todos) => todos.filterNot(
+      (item) => item.get('id') === itemId
+    )
+  )
+}
+
+
 export default (state = Map(), action) => {
   switch (action.type) {
     case 'SET_STATE':
@@ -69,6 +96,12 @@ export default (state = Map(), action) => {
       return cancelEditing(state, action.itemId)
     case 'DONE_EDITING':
       return doneEditing(state, action.itemId, action.newText)
+    case 'CLEAR_COMPLETED':
+      return clearCompleted(state)
+    case 'ADD_ITEM':
+      return addItem(state, action.text)
+    case 'DELETE_ITEM':
+      return deleteItem(state, action.itemId)
   }
   return state
 }
