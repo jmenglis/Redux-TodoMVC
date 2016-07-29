@@ -37,8 +37,7 @@ export const doneEditing = (itemId, newText) => {
 
 export const clearCompleted = () => {
   return {
-    type: 'CLEAR_COMPLETED',
-    text
+    type: 'CLEAR_COMPLETED'
   }
 }
 
